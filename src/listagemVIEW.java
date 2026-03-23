@@ -151,7 +151,7 @@ public class listagemVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-        String id = id_produto_venda.getText();
+        int id = Integer.parseInt(id_produto_venda.getText());
         
         ProdutosDAO produtosdao = new ProdutosDAO();
         
