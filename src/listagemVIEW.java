@@ -1,6 +1,5 @@
-
-import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -23,17 +22,17 @@ public class listagemVIEW extends javax.swing.JFrame {
             
             List<ProdutosDTO> listagem = produtosdao.lista();
             
-            for(int i = 0; i < listagem.size(); i++){
+            for(ProdutosDTO p : listagem){
                 model.addRow(new Object[]{
-                    listagem.get(i).getId(),
-                    listagem.get(i).getNome(),
-                    listagem.get(i).getValor(),
-                    listagem.get(i).getStatus()
+                    p.getId(),
+                    p.getNome(),
+                    p.getValor(),
+                    p.getStatus()
                 });
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar: " + e.getMessage());
         }
-    
     }
 
     /**
@@ -148,6 +147,7 @@ public class listagemVIEW extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed

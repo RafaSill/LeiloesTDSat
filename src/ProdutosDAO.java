@@ -35,13 +35,13 @@ public class ProdutosDAO {
     
     public List<ProdutosDTO> lista(){      
         String sql = "SELECT * FROM produtos"; 
-        ProdutosDTO p = new ProdutosDTO();
         List<ProdutosDTO> lista = new ArrayList<>();
         try {
             PreparedStatement stmt = this.conn.prepareStatement(sql);      
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
+                ProdutosDTO p = new ProdutosDTO();
                 p.setId(rs.getInt("id"));
                 p.setNome(rs.getString("nome"));
                 p.setValor(rs.getInt("valor"));

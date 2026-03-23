@@ -1,21 +1,17 @@
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class conectaDAO {
 
-    Connection conn;
-    PreparedStatement st;
-    ResultSet rs;
-
+    private Connection conn;
+    
     public Connection getConexao() {
         try {
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/uc11",
+            conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost/uc11?useSSL=false",
                     "root",
                     "root"
             );
@@ -30,7 +26,6 @@ public class conectaDAO {
         try {
             conn.close();
         } catch (SQLException e) {
-
         }
     }
 }
