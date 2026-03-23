@@ -3,7 +3,7 @@ public class ProdutosDTO {
 
     private Integer id;
     private String nome;
-    private double valor;
+    private Integer valor;
     private String status;
 
     public Integer getId() {
@@ -14,7 +14,7 @@ public class ProdutosDTO {
         return nome;
     }
 
-    public double getValor() {
+    public Integer getValor() {
         return valor;
     }
 

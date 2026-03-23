@@ -33,20 +33,24 @@ public class ProdutosDAO {
         }
     }
     
-    public List<ProdutosDTO> lista(ProdutosDTO p){      
+    public List<ProdutosDTO> lista(){      
         String sql = "SELECT * FROM produtos"; 
-        
+        ProdutosDTO p = new ProdutosDTO();
         List<ProdutosDTO> lista = new ArrayList<>();
         try {
             PreparedStatement stmt = this.conn.prepareStatement(sql);      
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
+                p.setId(rs.getInt("id"));
                 p.setNome(rs.getString("nome"));
-                p.setValor(rs.getDouble("valor"));
+                p.setValor(rs.getInt("valor"));
+                p.setStatus(rs.getString("status"));
+                lista.add(p);
             }
-            
-        } catch (Exception e) {
+            return lista;       
+        } catch (SQLException e) {
+            return null;
         }
     }
 
